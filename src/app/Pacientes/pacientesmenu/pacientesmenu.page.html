@@ -1,0 +1,143 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons color="secondary" slot="start">
+      <ion-button (click)="volverHome()" color="tertiary" 
+        ><ion-icon name="arrow-back-outline"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title mode="md" class="ion-no-padding">
+      <ion-label>
+        <ion-text color="secondary">Agregar/Ver</ion-text>
+        <p>
+          <ion-text color="white"><strong>Pacientes</strong></ion-text>
+        </p>
+      </ion-label>
+    </ion-title>
+    <ion-avatar slot="end">
+      <img src="./assets/img/pacienteicon.png" />
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios" color="primary">
+
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="openModalAgregarPaciente()" color="secondary">
+            Agregar Paciente
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="secondary">
+            Escanear Paciente
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-searchbar placeholder="Buscar por nombre"></ion-searchbar>
+
+  <ion-card color="secondary">
+    <ion-card-content color="white">
+      <ion-list   *ngFor="let pacientes of pacientes" color="white" [inset]="true">
+          <ion-item (click)="seleccionarPaciente(pacientes)" color="white">
+            <ion-label>
+              {{pacientes.nombres}} <br> {{pacientes.apellidos}}
+            </ion-label>
+            <ion-label slot="end">
+              V-{{pacientes.cedula}}
+            </ion-label>
+          </ion-item>
+         
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-modal #modalAgregarPaciente>
+  <ng-template>
+     
+
+    <ion-header color="primary">
+      <ion-toolbar color="primary">
+        <ion-buttons color="secondary" slot="start">
+          <ion-button (click)="closeModalAgregarPaciente()" color="tertiary" 
+            ><ion-icon name="arrow-back-outline"></ion-icon
+          ></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-header class="ion-no-border">
+      <ion-toolbar color="primary">
+        <ion-title mode="md" class="ion-no-padding">
+          <ion-label>
+            <ion-text color="secondary">Nuevo</ion-text>
+            <p>
+              <ion-text color="white"><strong>Paciente</strong></ion-text>
+            </p>
+          </ion-label>
+        </ion-title>
+        <ion-avatar slot="end">
+          <img src="./assets/img/pacienteicon.png" />
+        </ion-avatar>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content mode="ios" color="primary">
+
+      <ion-card color="primary">
+        <ion-card-content color="primary">
+          <ion-list color="primary" >
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.nombres" class="custom-input">Nombres</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.apellidos"  class="custom-input">Apellidos</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.cedula"  class="custom-input">Numero de ID</ion-input>
+              <ion-input [(ngModel)]="paciente.telefono"  class="custom-input">Telefono</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.sexo"  class="custom-input">Sexo</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.fechadenacimiento"  type="date" class="custom-input">Fecha de Nacimiento</ion-input>
+              <ion-input [(ngModel)]="paciente.edad"  class="custom-input">Edad</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.domicilio"  class="custom-input">Domicilio</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.personaemergencia"  class="custom-input">A quien llamar en caso de emergencia</ion-input>
+            </ion-item>
+            
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.numeroemergencia"  class="custom-input">Numero de telefono de emergencia</ion-input>
+            </ion-item>
+            <ion-item color="primary">
+              <ion-input [(ngModel)]="paciente.email"  class="custom-input">Email</ion-input>
+            </ion-item>
+    
+           
+            
+          </ion-list>
+          <ion-card color="primary" class="ion-text-center">
+          <ion-button (click)="guardarPaciente(paciente)" color="secondary" >Agregar</ion-button>
+        </ion-card>
+        </ion-card-content>
+      </ion-card>
+    
+    </ion-content>
+    
+    
+  </ng-template>
+</ion-modal>

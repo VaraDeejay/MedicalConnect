@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title mode="md" class="ion-no-padding">
+      <ion-label>
+        <ion-text color="secondary">¡Hola!</ion-text>
+        <p><ion-text color="white"><strong>Dr. Jose Perez</strong></ion-text></p>
+        
+      </ion-label>
+    </ion-title>
+    <ion-avatar slot="end">
+      <img src="./assets/img/UsuarioIcon.webp" alt="">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios" color="primary">
+  
+  
+  <ion-card class="cardmenu" color="white">
+    <img class="imgbanner" src="./assets/img/arreglo.jpeg" style="max-height: 20%;" alt="">
+    <img class="imglogo" src="./assets/img/LogoMC.png" alt="">
+    <ion-card-content>
+    <ion-grid>
+      
+      <ion-row>
+        <ion-col>
+          <ion-card >
+            
+            <img (click)="abrirPacientesMenu()" src="./assets/img/IconosMCMenu_Mesa de trabajo 1.png"  alt="">
+         
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card >
+            <img (click)="abrirConsultasMenu()" src="./assets/img/IconosMCMenu_Mesa de trabajo 2.png" alt="">
+           
+          </ion-card>
+        </ion-col>
+      </ion-row>
+   
+      <ion-row>
+        <ion-col>
+          <ion-card >
+            <a href=""><img src="./assets/img/IconosMCMenu_Mesa de trabajo 3.png" alt=""></a>
+           
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card>
+            <a href=""><img src="./assets/img/IconosMCMenu_Mesa de trabajo 4.png" alt=""></a>
+           
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+ 
+    <ion-tab-bar color="secondary" slot="bottom">
+      
+      <ion-tab-button (click)="abrirPacientesMenu()" tab="solicitudes">
+        <ion-icon name="people-outline"></ion-icon>
+        Solicitudes
+      </ion-tab-button>
+      <ion-tab-button tab="scan">
+        <ion-icon name="scan-outline"></ion-icon>
+        Escanear
+      </ion-tab-button>
+      <ion-tab-button tab="Perfil">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Logout
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+</ion-footer>
+
+

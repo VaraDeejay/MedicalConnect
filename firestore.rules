@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if
+          request.time < timestamp.date(2025, 12, 22);}
+          
+  match /databases/{database}/documents {
+    // Regla que permite la lectura de todos los documentos en la colección "pacientes"
+    match /pacientes/{pacienteId} {
+      allow read: if true;
+    }
+}
+    // Regla que permite la escritura en los documentos de la colección "pacientes" solo para usuarios autenticados
+    match /pacientes/{pacienteId} {
+      allow write: if request.auth != null;
+    }
+  }}

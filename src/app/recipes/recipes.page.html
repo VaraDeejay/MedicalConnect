@@ -1,0 +1,47 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons color="secondary" slot="start">
+      <ion-button (click)="volverAHome()" color="tertiary" 
+        ><ion-icon name="arrow-back-outline"></ion-icon
+      >Home</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title mode="md" class="ion-no-padding">
+      <ion-label>
+        <ion-text color="secondary">Recipe e</ion-text>
+        <p>
+          <ion-text color="white"><strong>Indicaciones</strong></ion-text>
+        </p>
+      </ion-label>
+    </ion-title>
+    <ion-avatar slot="end">
+      <img src="./assets/img/pacienteicon.png" />
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="primary">
+  <ion-card color="white">
+    <ion-card-header>Recipe</ion-card-header>
+    <ion-card-content>
+      <ion-textarea></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="white">
+    <ion-card-header>Indicaciones</ion-card-header>
+    <ion-card-content>
+      <ion-textarea></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <ion-button color="secondary">Imprimir</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
